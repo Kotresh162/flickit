@@ -16,7 +16,8 @@ This is a Flutter app that uses **Google ML Kit** for real-time object detection
 ---
 
 ## 🚀 Getting Started
-
+![welcomescreen.jpeg](..%2F..%2F..%2FDownloads%2Fwelcomescreen.jpeg)
+![camerascreen.jpeg](..%2F..%2F..%2FDownloads%2Fcamerascreen.jpeg)
 ### Prerequisites
 
 - Flutter (3.x+ recommended)
