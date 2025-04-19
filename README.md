@@ -1,16 +1,77 @@
-# flickapp
+# Flutter Real-Time Object Detection App
 
-A new Flutter project.
+This is a Flutter app that uses **Google ML Kit** for real-time object detection, implemented natively for Android via **Platform Channels**. The app detects objects using the camera and plays an alarm sound when any object is detected. You can start and stop the detection with a simple UI.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📱 Features
 
-A few resources to get you started if this is your first Flutter project:
+- Real-time object detection using Google ML Kit (native Android)
+- Flutter UI with Start/Cancel control
+- Centered camera preview
+- Alarm sound when an object is detected
+- Clean permission handling
+- Communication between Flutter and native code using `MethodChannel`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Flutter (3.x+ recommended)
+- Android Studio / VS Code
+- Android device or emulator with camera support
+- Android SDK 21+
+
+---
+
+### 📦 Dependencies
+
+**pubspec.yaml**
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  permission_handler: ^11.0.1
+
+### 📦 Structure
+lib/
+  └── main.dart
+android/
+  └── MainActivity.kt
+  └── (ML Kit object detection logic)
+📷 Permissions
+Ensure the following permissions are in AndroidManifest.xml:
+
+xml
+Copy
+Edit
+<uses-permission android:name="android.permission.CAMERA"/>
+
+Platform Channel Setup
+Channel name: object_detector
+
+Supported methods:
+
+startObjectDetection
+
+stopObjectDetection
+
+## Object Detection Logic
+* Uses CameraX for camera feed.
+
+* Uses ML Kit Object Detection API.
+
+* Plays a sound using ToneGenerator when an object is detected.
+
+* Welcome Screen → Shows Start button.
+
+* Start Button Pressed → Requests permission, launches native detection.
+
+* Detection Started → Camera preview appears with “Cancel” button.
+
+* Object Detected → A short alarm tone plays.
+
+* Cancel Pressed → Stops camera and goes back to welcome screen.
